@@ -7,6 +7,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.observers.DisposableSingleObserver
 import kr.co.donghyun.covid19_.data.Covid19ResultData
 import kr.co.donghyun.covid19_.data.constants.Constants
+import kr.co.donghyun.covid19_.data.network.data.Covid19NewsData
+import kr.co.donghyun.covid19_.domain.repo.Covid19NewsRepository
 import kr.co.donghyun.covid19_.domain.repo.Covid19Repository
 import kr.co.donghyun.covid19_.presentation.base.BaseViewModel
 import retrofit2.Response
@@ -18,7 +20,8 @@ import kotlin.collections.ArrayList
 
 @HiltViewModel
 class Covid19ViewModel @Inject constructor(
-    private val repository : Covid19Repository
+    private val repository : Covid19Repository,
+    private val newsRepository: Covid19NewsRepository
 ) : BaseViewModel() {
 
     val decideNum = MutableLiveData("")
@@ -26,6 +29,20 @@ class Covid19ViewModel @Inject constructor(
     val barEntry = MutableLiveData(ArrayList<BarEntry>(arrayListOf()))
     val todayDate = MutableLiveData(SimpleDateFormat("yyyy년 MM월 dd일").format(System.currentTimeMillis()))
 //    val xAxisLabel: ArrayList<String> = arrayListOf()
+
+    fun getCovid19News() {
+        addDisposable(newsRepository.parseCovid19News(),
+            object : DisposableSingleObserver<Response<Covid19NewsData>>() {
+                override fun onSuccess(response : Response<Covid19NewsData>) {
+                    Log.d("TAG", "${response.body()}")
+                }
+
+                override fun onError(error : Throwable) {
+                    Log.d("TAG", "error_ : ${error.message}")
+                }
+
+            })
+    }
 
     fun getCovid19ForWeek() {
         addDisposable(repository.parseCovid19Week(),
