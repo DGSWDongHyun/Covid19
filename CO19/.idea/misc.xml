@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../Github/COVID19/CO19/app/src/main/res/layout/activity_main.xml" value="0.18659420289855072" />
         <entry key="../../../Github/COVID19/CO19/app/src/main/res/layout/fragment_covid19.xml" value="0.31251299711927283" />
+        <entry key="../../../Github/COVID19/CO19/app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="../../../Github/COVID19/CO19/app/src/main/res/layout/fragment_slide.xml" value="0.19157608695652173" />
+        <entry key="../../../Github/COVID19/CO19/app/src/main/res/layout/item_covid_19.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_covid19.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_def.xml" value="0.15520833333333334" />

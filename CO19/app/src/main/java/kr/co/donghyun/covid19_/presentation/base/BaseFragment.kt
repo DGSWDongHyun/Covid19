@@ -1,6 +1,9 @@
 package kr.co.donghyun.covid19_.presentation.base
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +39,12 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
 
     private fun performBinding(inflater: LayoutInflater, container: ViewGroup?) {
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
+
+        viewModel.startWebActivity.observe(requireActivity(), Observer { uri ->
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            startActivity(intent)
+            Log.d("TAG", "what")
+        })
 
         viewModel.startNavigate.observe(requireActivity(), Observer { uri ->
             findNavController().navigate(uri)

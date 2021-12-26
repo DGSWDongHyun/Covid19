@@ -14,6 +14,7 @@ interface Covid19NewsParseAPI {
     fun getCovid19News(
         @Header("X-Naver-Client-Id") header_cl_id : String?,
         @Header("X-Naver-Client-Secret") header_cl_secret : String?,
-        @Query("query") query: String?
+        @Query("query") query: String?,
+        @Query("sort") sort : String = "sim"
     ) : Single<Response<Covid19NewsData>>
 }

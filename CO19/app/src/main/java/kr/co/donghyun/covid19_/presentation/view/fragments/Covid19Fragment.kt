@@ -36,7 +36,6 @@ class Covid19Fragment : BaseFragment<FragmentCovid19Binding, Covid19ViewModel>()
 
     override fun onViewCreated(view: FragmentCovid19Binding) {
         with(viewModel) {
-            getCovid19News()
             getCovid19List()
             barEntry.observe(requireActivity(), Observer { barEntry ->
                 if(barEntry.isNotEmpty()) {
