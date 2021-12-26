@@ -18,18 +18,20 @@ open class BaseViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     val isRefreshing = MutableLiveData(false)
 
+    private val _eventSpecialActivity = SingleLiveEvent<String>()
     private val _eventMyActivity = SingleLiveEvent<Pair<KClass<*>, Bundle?>>()
     private val _eventMyFragment = SingleLiveEvent<Int>()
 
     val startNavigate: MutableLiveData<Int>
         get() = _eventMyFragment
-    val startActivity: LiveData<Pair<KClass<*>, Bundle?>>
+    val startActivity: MutableLiveData<Pair<KClass<*>, Bundle?>>
         get() = _eventMyActivity
+    val startWebActivity: MutableLiveData<String>
+        get() = _eventSpecialActivity
 
     fun addDisposable(single: Single<*>, observer: DisposableSingleObserver<*>) {
         compositeDisposable.add(single.subscribeOn(Schedulers.io()).
-        observeOn(AndroidSchedulers.mainThread()).subscribeWith(observer as SingleObserver<Any>) as Disposable
-        )
+        observeOn(AndroidSchedulers.mainThread()).subscribeWith(observer as SingleObserver<Any>) as Disposable)
     }
 
     override fun onCleared() {

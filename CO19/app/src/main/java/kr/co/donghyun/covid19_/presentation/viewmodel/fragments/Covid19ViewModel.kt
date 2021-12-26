@@ -7,6 +7,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.observers.DisposableSingleObserver
 import kr.co.donghyun.covid19_.data.Covid19ResultData
 import kr.co.donghyun.covid19_.data.constants.Constants
+import kr.co.donghyun.covid19_.data.network.data.Covid19NewsData
+import kr.co.donghyun.covid19_.domain.repo.Covid19NewsRepository
 import kr.co.donghyun.covid19_.domain.repo.Covid19Repository
 import kr.co.donghyun.covid19_.presentation.base.BaseViewModel
 import retrofit2.Response

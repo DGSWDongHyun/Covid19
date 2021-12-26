@@ -25,6 +25,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun onViewCreated(view: FragmentHomeBinding) {
         with(viewModel) {
+            getCovid19News()
         }
     }
 }

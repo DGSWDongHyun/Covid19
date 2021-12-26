@@ -51,6 +51,7 @@ dependencies {
 
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.gson_version}"
 
     //xml parser
     implementation "com.tickaroo.tikxml:annotation:${rootProject.tik_xml_version}"
@@ -71,6 +72,9 @@ dependencies {
 
     //mp_android_chart
     implementation "com.github.PhilJay:MPAndroidChart:${rootProject.mp_android_chart_version}"
+
+    //indicator viewpager
+    implementation "com.thisobeystudio.customviewpager:customviewpager:${rootProject.viewpager_version}"
 }
 
 kapt {

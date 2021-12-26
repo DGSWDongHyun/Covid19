@@ -4,8 +4,10 @@ buildscript {
         retrofit_version = "2.9.0"
         tik_xml_version = "0.8.13"
         dagger_hilt_version = "2.40.5"
-        gson_version = "2.8.7"
+        gson_version = "2.6.2"
         glide_version = "4.12.0"
+
+        viewpager_version = "2.0.3"
 
         rx_android_version = "2.1.1"
         rx_java2_version = "2.2.19"

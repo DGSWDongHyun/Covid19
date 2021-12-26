@@ -16,6 +16,38 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/covidNews"
+            android:layout_width="0dp"
+            android:layout_height="330dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{() -> viewModel.navigateToCovidTab()}"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:adapter="@{viewModel.newsAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:spanCount="1"
+                    tools:listitem="@layout/item_covid_19" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardViewCovid"
             android:layout_width="0dp"
             android:layout_height="200dp"
@@ -26,56 +58,7 @@
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewDef">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/def_bg">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="right"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <TextView
-                        android:id="@+id/covid19Title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="요소수 제공 정보"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/covid19Desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="지도를 통하여 주변에 요소수 재고가 있는지 알려드립니다"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewDef"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
-            android:onClick="@{() -> viewModel.navigateToCovidTab()}"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/covidNews">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -112,6 +95,29 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="실시간 코로나 정보"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="실시간으로 코로나 정보를 안내드립니다."
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
